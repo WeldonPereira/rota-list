@@ -27,15 +27,3 @@ table td {
 table tr:nth-child(even) {
   background-color: #f9f9f9;
 }
-
-#ufpe {
-  background-color: #b30000; /* Vermelho escuro institucional */
-  color: #fff;
-  font-weight: bold;
-}
-
-#derby {
-  background-color: #1aa097; /* Tom suave e moderno de verde água */
-  color: #fff;
-  font-weight: bold;
-}

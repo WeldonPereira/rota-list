@@ -28,7 +28,6 @@ const ListQuantifier = ({ list }) => {
       countedIda = true;
       countedVolta = true;
     } else {
-      // Só conta "ida" se for isolada (e não já contada no ida e volta)
       if (idaOnlyRegex.test(lower)) countedIda = true;
       if (voltaOnlyRegex.test(lower)) countedVolta = true;
     }
