@@ -1,23 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import ListQuantifier from "./components/ListQuantifier";
+import "./App.css";
 
 function App() {
+  const [itemList, setItemList] = useState("");
+  const [submittedList, setSubmittedList] = useState("");
+
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+    setSubmittedList(itemList);
+    setItemList("");
+  };
+
+  if (submittedList) {
+    return <ListQuantifier list={submittedList} />;
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Insira abaixo a versão mais atualizada da lista:</h1>
+      <div className="formContainer">
+        <form onSubmit={handleFormSubmit} autoComplete="off">
+          <label htmlFor="itemListInput">
+            Lista:
+            <input
+              id="itemListInput"
+              type="text"
+              name="itemList"
+              value={itemList}
+              onChange={(e) => setItemList(e.target.value)}
+              required
+            />
+          </label>
+          <input type="submit" value="Calcular" />
+        </form>
+      </div>
     </div>
   );
 }
